@@ -1,3 +1,4 @@
+
 /* Reset and base styles */
 * {
     margin: 0;
@@ -64,9 +65,8 @@ body {
 }
 
 /* Hero section */
-/* Hero section */
 .hero {
-    height: 40vh; /* Changed from calc(100vh - 72px) to 40vh for consistency */
+    height: 40vh;
     background: linear-gradient(135deg, #3498db, #2c3e50);
     display: flex;
     align-items: center;
@@ -74,34 +74,22 @@ body {
     text-align: center;
     color: white;
     padding: 0 1rem;
-    margin-top: 72px; /* Add margin to account for fixed navbar */
 }
 
 .hero-content {
     max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem; /* Added padding for better spacing */
 }
 
-.hero-content h1 {
+.hero h1 {
+    margin-top: 5rem;
     font-size: 3rem;
     margin-bottom: 1rem;
-    margin-top: 0; /* Remove any top margin */
 }
 
-.hero-content p {
+.hero p {
     font-size: 1.2rem;
-    margin-bottom: 3.7rem;
+    margin-bottom: 2rem;
 }
-
-
-
-
-.contact-form {
-    margin: 0.5rem auto 0 !important; /* Reduced from 2rem, and override inline style */
-}
-
 
 .cta-button {
     display: inline-block;
@@ -217,13 +205,8 @@ body {
 
 /* Stylish Contact Us Button */
 .contact-btn {
-    width: auto;
     padding: 0.7rem 2rem;
-    background: linear-gradient(90deg,hsl(241, 97%, 12%), /* PTU Red */
-        #1e466b, /* PTU Yellow */
-        #014991, /* PTU Blue */
-        #04012e, /* White */
-        #1b017a  /* Loop back to Red */);
+    background: linear-gradient(90deg, #e30613, #ffd600, #003366, #e30613);
     background-size: 300% 300%;
     color: #fff;
     font-size: 1rem;
@@ -325,11 +308,11 @@ footer {
     height: calc(100% + 4px);
     background-image: linear-gradient(
         45deg,
-          hsl(356, 95%, 46%), /* PTU Red */
-        #ffd600, /* PTU Yellow */
-        #003366, /* PTU Blue */
-        #ffffff, /* White */
-        #e30613  /* Loop back to Red */
+        hsl(356, 95%, 46%),
+        #ffd600, 
+        #003366, 
+        #ffffff,
+        #e30613 
     );
     background-size: 400%;
     animation: rotBGimg 3s linear infinite;
@@ -439,11 +422,11 @@ This adds a shadow of card
     right: 0;
     bottom: 0;
     background: linear-gradient(270deg, 
-        hsl(356, 95%, 46%), /* PTU Red */
-        #ffd600, /* PTU Yellow */
+        hsl(241, 97%, 12%), /* PTU Red */
+        #0084ff, /* PTU Yellow */
         #003366, /* PTU Blue */
         #ffffff, /* White */
-        #e30613  /* Loop back to Red */
+        #1d0577  /* Loop back to Red */
     );
     background-size: 800% 800%;
     border-radius: 30px;
@@ -522,376 +505,201 @@ This adds a shadow of card
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* Request Call Back Section */
-.hero {
-    height: auto;
-    padding: 5rem 5%;
-    background: linear-gradient(135deg, #3498db, #2c3e50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 0 1rem;
-}
-
-.hero-content {
-    max-width: 600px;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-form {
-    background: rgba(255, 255, 255, 0.1);
+/* Filter section styles */
+.filter-container {
+    max-width: 1200px;
+    margin: 0 auto;
     padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    width: 100%;
-    max-width: 400px;
+    text-align: center;
+}
+
+.filter-options {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.filter-group label {
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: #2c3e50;
+}
+
+.filter-select {
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    min-width: 200px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.filter-select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+#filter-btn {
+    padding: 0.8rem 2rem;
+    align-self: flex-end;
+    margin-top: 1.5rem;
+}
+
+/* PYQ Results section */
+.pyq-results {
+    padding: 3rem 5%;
+    background: #f9f9f9;
+}
+
+.results-container {
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    text-align: left;
-    color: #fff;
+.pyq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
 }
 
-input {
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    border: none;
-    margin-bottom: 1.5rem;
-    width: 100%;
-    font-size: 1rem;
-}
-
-input:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
-}
-
-button {
-    width: 100%;
-    padding: 0.8rem;
-    background: #3498db;
-    color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
-}
-
-button:hover {
-    background: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* ============================
-   Animated Gradient Card Effect
-============================= */
-.card {
-    position: relative;
-    padding: 2px;
-    border-radius: 20px;
-    background: #07182E;
-    overflow: hidden;
+.pyq-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-}
-
-.card::before {
-    content: '';
-    position: absolute;
-    width: calc(100% + 4px);
-    height: calc(100% + 4px);
-    background-image: linear-gradient(
-        45deg,
-          hsl(356, 95%, 46%), /* PTU Red */
-        #ffd600, /* PTU Yellow */
-        #003366, /* PTU Blue */
-        #ffffff, /* White */
-        #e30613  /* Loop back to Red */
-    );
-    background-size: 400%;
-    animation: rotBGimg 3s linear infinite;
-    top: -2px;
-    left: -2px;
-    z-index: 0;
-    border-radius: 20px;
-    filter: blur(1px);
-    opacity: 0.8;
-    transition: opacity .3s ease;
-}
-
-.card:hover::before {
-    opacity: 1;
-}
-
-
-/*
-===========================
-This adds a shadow of card
-===========================
-*/
-/* .card::after {
-    content: "";
-    position: absolute;
-    background: #07182e;
-    inset: 5px;
-    border-radius: 15px;
-    z-index: 1;
-} */
-
-.card:hover {
-    transform: scale(1.03);
-}
-
-.card > .course-card {
-    position: relative;
-    background: #fff;
-    border-radius: 18px;
-    padding: 2rem;
-    text-align: center;
-    z-index: 2;
-}
-
-@keyframes rotBGimg {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-.card {
-    overflow: visible; /* Allow button to jump out */
-}
-
-.button-wrapper {
-    position: absolute;
-    left: 50%;
-    bottom: -40px; /* Start below the card */
-    transform: translate(-50%, 30px);
-    opacity: 0;
-    transition: transform 0.4s cubic-bezier(.68,-0.55,.27,1.55), opacity 0.3s;
-    z-index: 3;
-    pointer-events: none; /* Prevent accidental hover when hidden */
-}
-
-.card:hover .button-wrapper {
-    transform: translate(-50%, -20px); /* Jump up above the card */
-    opacity: 1;
-    pointer-events: auto;
-}
-
-.button-wrapper .course-button {
-    margin-top: 0;
-    box-shadow: 0 8px 24px rgba(52,152,219,0.15);
-    transition: transform 0.2s;
-}
-
-.button-wrapper .course-button:hover {
-    transform: scale(1.08);
-}
-.course-card .course-button {
-    display: none;
-}
-
-/* ============================
-   Animated Button style
-============================= */
-
-.gradient-button {
-    position: relative;
     overflow: hidden;
-    z-index: 1;
-    border: none;
 }
 
-.gradient-button::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(270deg, 
-        hsl(356, 95%, 46%), /* PTU Red */
-        #ffd600, /* PTU Yellow */
-        #003366, /* PTU Blue */
-        #ffffff, /* White */
-        #e30613  /* Loop back to Red */
-    );
-    background-size: 800% 800%;
-    border-radius: 30px;
-    z-index: -1;
-    animation: gradientMovePTU 8s ease-in-out infinite;
-    filter: blur(0.5px);
-    transition: filter 0.3s;
+.pyq-card:hover {
+    transform: translateY(-5px);
 }
 
-.gradient-button:hover::before {
-    filter: blur(1.5px);
-    animation-duration: 5s;
+.pyq-card-content {
+    padding: 1.5rem;
 }
 
-/* Adjust the text color for better visibility */
-.gradient-button {
-    color: white !important;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-/* Make sure the button text stays white on hover */
-.gradient-button:hover {
-    color: white !important;
-}
-
-
-/* Add this to your styles.css */
-.centered-pair {
-    display: flex;
-    justify-content: center;
-    gap: 2rem;
-    width: 100%;
-    grid-column: 1 / -1; /* Makes the pair span all columns */
-    margin: 0 auto;
-    padding: 1rem 0;
-}
-
-/* Adjust the course grid to handle this special case */
-.course-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    max-width: 1200px;
-    margin: 0 auto;
-    align-items: start; /* Changed from center to prevent vertical stretching */
-}
-
-@media (max-width: 768px) {
-    /* Make all cards equal width in mobile */
-    .course-grid {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .card {
-        width: 90%;
-        max-width: 300px;
-        margin-bottom: 1.5rem;
-    }
-    
-    /* Specific fix for the centered pair */
-    .centered-pair {
-        width: 100%;
-        flex-direction: column;
-        align-items: center;
-        gap: 1.5rem;
-    }
-    
-    .centered-pair .card {
-        width: 90%;
-        max-width: 300px;
-    }
-}
-
-/* Request Call Back Section */
-.hero {
-    height: auto;
-    padding: 5rem 5%;
-    background: linear-gradient(135deg, #3498db, #2c3e50);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    color: white;
-    padding: 0 1rem;
-}
-
-.hero-content {
-    max-width: 600px;
-}
-
-.hero h1 {
-    font-size: 2.5rem;
-    margin-bottom: 2rem;
-}
-
-form {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 2rem;
-    border-radius: 10px;
-    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
-    display: inline-block;
-    width: 100%;
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-label {
-    display: block;
+.pyq-card h3 {
+    color: #2c3e50;
     margin-bottom: 0.5rem;
-    text-align: left;
-    color: #fff;
 }
 
-input {
-    padding: 0.8rem 1.2rem;
-    border-radius: 8px;
-    border: none;
+.pyq-card p {
+    color: #7f8c8d;
     margin-bottom: 1.5rem;
-    width: 100%;
-    font-size: 1rem;
 }
 
-input:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(52, 152, 219, 0.5);
+.pyq-actions {
+    display: flex;
+    gap: 1rem;
 }
 
-button {
-    width: 100%;
-    padding: 0.8rem;
+.view-btn, .download-btn {
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.view-btn {
     background: #3498db;
     color: white;
-    border: none;
-    border-radius: 25px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.3s ease;
 }
 
-button:hover {
+.view-btn:hover {
     background: #2980b9;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.download-btn {
+    background: #2ecc71;
+    color: white;
+}
+
+.download-btn:hover {
+    background: #27ae60;
+}
+
+/* PDF Modal styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-content {
+    position: relative;
+    margin: 5% auto;
+    width: 80%;
+    height: 80%;
+    max-width: 900px;
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    color: #333;
+}
+
+#pdf-viewer {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .filter-options {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .filter-group {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    #filter-btn {
+        align-self: center;
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .pyq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .modal-content {
+        width: 95%;
+        height: 85%;
+        margin: 10% auto;
+    }
+}
+
+

@@ -1,16 +1,16 @@
 <head>
-    <link rel="stylesheet" href="../styles-contactus.css">
+    <link rel="stylesheet" href="styles-cse.css">
 </head>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College PTU PYQ</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>College PTU PYQ - CSE</title>
+    <link rel="stylesheet" href="../styles-cse.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
-<!--Header-->
 <body>
     <nav class="navbar">
         <div class="logo">
@@ -19,31 +19,230 @@
             <div class="unofficial-note">unofficial</div>
         </div>
         <ul class="nav-links">
-            <li><a href="../index.html">Home</a></li>
-            <li><a href="../index.html#courses">Courses</a></li>
-            <li><a href="../index.html#about">About</a></li>
-            <li><a href="../index.html#contact">Contact</a></li>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="../../index.html#courses">Courses</a></li>
+            <li><a href="../../index.html#about">About</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
         </ul>
     </nav>
-    
 
     <section id="home" class="hero">
-    <div class="hero-content">
-        <h1 class="fade-in">B-Tech</h1>
-        <p class="fade-in">Computer Science and Engineering</p>
+        <div class="hero-content">
+            <h1 class="fade-in">B-Tech</h1>
+            <p class="fade-in">Computer Science and Engineering</p>
+        </div>
+    </section>
+
+    <section id="pyq-filter" class="courses">
+    <div class="filter-container">
+        <h2>Filter Previous Year Questions</h2>
+        <div class="filter-options">
+            <div class="filter-group">
+                <label for="semester">Semester:</label>
+                <select id="semester" class="filter-select">
+                    <option value="all">All Semesters</option>
+                    <option value="1">Semester 1</option>
+                    <option value="2">Semester 2</option>
+                    <!-- ... up to semester 8 -->
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="subject">Subject:</label>
+                <select id="subject" class="filter-select">
+                    <option value="all">All Subjects</option>
+                    <!-- Subjects will be populated dynamically -->
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="year">Year:</label>
+                <select id="year" class="filter-select">
+                    <option value="all">All Years</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <!-- ... other years -->
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="paper-type">Paper Type:</label>
+                <select id="paper-type" class="filter-select">
+                    <option value="all">All Papers</option>
+                    <option value="MST1">MST 1</option>
+                    <option value="MST2">MST 2</option>
+                    <option value="EndTerm">End Term</option>
+                </select>
+            </div>
+            
+            <button id="filter-btn" class="gradient-button">Search PYQs</button>
+        </div>
     </div>
 </section>
 
+    
+<section id="pyq-results" class="pyq-results">
+    <div class="results-container">
+        <div class="empty-state">
+            <i class="fas fa-search fa-3x" style="margin-bottom: 1rem; color: #3498db;"></i>
+            <h3>No PYQs Selected</h3>
+            <p>Please select semester, subject, and year to view available question papers</p>
+        </div>
+        <div class="pyq-content" style="display: none;">
+            <h2>Available Question Papers</h2>
+            <div class="pyq-grid">
+                <!-- PYQ cards will be populated here dynamically -->
+            </div>
+        </div>
+    </div>
+</section>
 
+    <!-- PDF Viewer Modal -->
+    <div id="pdf-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <iframe id="pdf-viewer" src="" frameborder="0"></iframe>
+        </div>
+    </div>
 
-
-
-<!--Footer-->
     <footer>
         <p>&copy; 2025 PTU PYQ. All rights reserved.</p>
     </footer>
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <!-- <script>
+        // Sample data for subjects by semester
+        const subjectsBySemester = {
+            "1": ["Mathematics I", "Physics", "Chemistry", "Basic Electrical Engineering", "Programming in C"],
+            "2": ["Mathematics II", "Engineering Mechanics", "Environmental Studies", "Basic Electronics", "Data Structures"],
+            "3": ["Discrete Mathematics", "Digital Electronics", "Computer Organization", "Object Oriented Programming", "Database Systems"],
+            "4": ["Theory of Computation", "Operating Systems", "Computer Networks", "Algorithms", "Microprocessors"],
+            "5": ["Software Engineering", "Compiler Design", "Artificial Intelligence", "Computer Graphics", "Web Technologies"],
+            "6": ["Data Mining", "Cloud Computing", "Machine Learning", "Information Security", "Distributed Systems"],
+            "7": ["Big Data Analytics", "Internet of Things", "Blockchain Technology", "Natural Language Processing", "Project Work"],
+            "8": ["Advanced Algorithms", "Quantum Computing", "Cyber Security", "Project Work II"]
+        };
+
+        // DOM elements
+        const semesterSelect = document.getElementById('semester');
+        const subjectSelect = document.getElementById('subject');
+        const yearSelect = document.getElementById('year');
+        const filterBtn = document.getElementById('filter-btn');
+        const pyqGrid = document.querySelector('.pyq-grid');
+        const modal = document.getElementById('pdf-modal');
+        const pdfViewer = document.getElementById('pdf-viewer');
+        const closeBtn = document.querySelector('.close-btn');
+        const viewButtons = document.querySelectorAll('.view-btn');
+
+        // Populate subjects based on semester selection
+        semesterSelect.addEventListener('change', function() {
+            const selectedSemester = this.value;
+            subjectSelect.innerHTML = '<option value="">Select Subject</option>';
+            
+            if (selectedSemester && subjectsBySemester[selectedSemester]) {
+                subjectsBySemester[selectedSemester].forEach(subject => {
+                    const option = document.createElement('option');
+                    option.value = subject;
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Filter PYQs
+        filterBtn.addEventListener('click', function() {
+            const semester = semesterSelect.value;
+            const subject = subjectSelect.value;
+            const year = yearSelect.value;
+            
+            // In a real implementation, you would fetch filtered PYQs from a server
+            // Here we just simulate filtering
+            console.log(`Filtering by: Semester ${semester}, Subject ${subject}, Year ${year}`);
+            
+            // Clear current results
+            pyqGrid.innerHTML = '';
+            
+            // Add sample filtered results
+            if (semester || subject || year) {
+                const filteredCard = document.createElement('div');
+                filteredCard.className = 'pyq-card';
+                filteredCard.innerHTML = `
+                    <div class="pyq-card-content">
+                        <h3>${subject || 'Sample Subject'}</h3>
+                        <p>${semester ? 'Semester ' + semester : 'Semester X'} | ${year || '202X'}</p>
+                        <div class="pyq-actions">
+                            <a href="#" class="view-btn" data-pdf="sample.pdf">View PDF</a>
+                            <a href="#" class="download-btn">Download</a>
+                        </div>
+                    </div>
+                `;
+                pyqGrid.appendChild(filteredCard);
+                
+                // Add event listener to the new view button
+                filteredCard.querySelector('.view-btn').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openPdfViewer(this.getAttribute('data-pdf'));
+                });
+            } else {
+                // Show all if no filters selected
+                pyqGrid.innerHTML = `
+                    <div class="pyq-card">
+                        <div class="pyq-card-content">
+                            <h3>Data Structures</h3>
+                            <p>Semester 3 | 2023</p>
+                            <div class="pyq-actions">
+                                <a href="#" class="view-btn" data-pdf="sample.pdf">View PDF</a>
+                                <a href="#" class="download-btn">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pyq-card">
+                        <div class="pyq-card-content">
+                            <h3>Operating Systems</h3>
+                            <p>Semester 4 | 2022</p>
+                            <div class="pyq-actions">
+                                <a href="#" class="view-btn" data-pdf="sample.pdf">View PDF</a>
+                                <a href="#" class="download-btn">Download</a>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                // Add event listeners to all view buttons
+                document.querySelectorAll('.view-btn').forEach(btn => {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        openPdfViewer(this.getAttribute('data-pdf'));
+                    });
+                });
+            }
+        });
+
+        // PDF Viewer functionality
+        function openPdfViewer(pdfUrl) {
+            pdfViewer.src = pdfUrl;
+            modal.style.display = 'block';
+        }
+
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = 'none';
+            pdfViewer.src = '';
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                pdfViewer.src = '';
+            }
+        });
+
+        // Add event listeners to existing view buttons
+        viewButtons.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                openPdfViewer(this.getAttribute('data-pdf'));
+            });
+        });
+    </script> -->
+    <script src="../../script.js"></script>
 </body>
 </html>
