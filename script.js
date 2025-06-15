@@ -60,9 +60,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const pyqDatabase = {
         "1": {
             "Mathematics I": {
-                "2023": ["MST1", "MST2", "EndTerm"]
-                // "2022": ["MST1", "MST2", "EndTerm"],
-                // "2021": ["MST1", "MST2", "EndTerm"]
+                "2023": ["MST1", "MST2", "EndTerm"],
+                "2022": ["MST1", "MST2", "EndTerm"],
+                "2021": ["MST1", "MST2", "EndTerm"]
             }
             // "Physics": {
             //     "2023": ["MST1", "MST2", "EndTerm"],
@@ -73,37 +73,37 @@ document.addEventListener('DOMContentLoaded', function() {
             //     "2022": ["MST2", "EndTerm"]
             // }
         },
-        // "2": {
-        //     "Data Structures": {
-        //         "2023": ["MST1", "EndTerm"],
-        //         "2022": ["MST2", "EndTerm"],
-        //         "2021": ["MST1", "EndTerm"]
-        //     },
-        //     "Mathematics II": {
-        //         "2023": ["MST1", "MST2", "EndTerm"],
-        //         "2022": ["MST1", "EndTerm"]
-        //     }
-        // },
-        // "3": {
-        //     "Algorithms": {
-        //         "2023": ["MST1", "MST2", "EndTerm"],
-        //         "2022": ["MST1", "EndTerm"]
-        //     },
-        //     "Database Systems": {
-        //         "2023": ["MST1", "EndTerm"],
-        //         "2022": ["MST2", "EndTerm"]
-        //     }
-        // },
-        // "4": {
-        //     "Operating Systems": {
-        //         "2023": ["MST1", "MST2", "EndTerm"],
-        //         "2022": ["MST1", "EndTerm"]
-        //     },
-        //     "Computer Networks": {
-        //         "2023": ["MST1", "EndTerm"],
-        //         "2022": ["MST2", "EndTerm"]
-        //     }
-        // }
+        "2": {
+            "Data Structures": {
+                "2023": ["MST1", "EndTerm"],
+                "2022": ["MST2", "EndTerm"],
+                "2021": ["MST1", "EndTerm"]
+            },
+            "Mathematics II": {
+                "2023": ["MST1", "MST2", "EndTerm"],
+                "2022": ["MST1", "EndTerm"]
+            }
+        },
+        "3": {
+            "Algorithms": {
+                "2023": ["MST1", "MST2", "EndTerm"],
+                "2022": ["MST1", "EndTerm"]
+            },
+            "Database Systems": {
+                "2023": ["MST1", "EndTerm"],
+                "2022": ["MST2", "EndTerm"]
+            }
+        },
+        "4": {
+            "Operating Systems": {
+                "2023": ["MST1", "MST2", "EndTerm"],
+                "2022": ["MST1", "EndTerm"]
+            },
+            "Computer Networks": {
+                "2023": ["MST1", "EndTerm"],
+                "2022": ["MST2", "EndTerm"]
+            }
+        }
     };
 
     // DOM elements
@@ -292,30 +292,4 @@ document.addEventListener('DOMContentLoaded', function() {
             closePdfViewer();
         }
     });
-
-
-
-    //This script functionality so that when someone clicks hamburger menu then it will close
-    document.querySelectorAll('.menu a').forEach(function(link) {
-        link.addEventListener('click', function() {
-            // Uncheck the checkbox to close the menu
-            document.getElementById('check').checked = false;
-        });
-    });
-
-    document.addEventListener('click', function(event) {
-        const menu = document.querySelector('.menu');
-        const openMenu = document.querySelector('.open-menu');
-        const check = document.getElementById('check');
-        // If menu is open and click is outside menu and hamburger icon
-        if (
-            check && check.checked &&
-            !menu.contains(event.target) &&
-            !openMenu.contains(event.target) &&
-            event.target !== check
-        ) {
-            check.checked = false;
-        }
-    });
-
 });
