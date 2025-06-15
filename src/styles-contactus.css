@@ -64,9 +64,9 @@ body {
 }
 
 /* Hero section */
-/* Hero section */
 .hero {
-    height: 40vh; /* Changed from calc(100vh - 72px) to 40vh for consistency */
+
+    height: 100vh;
     background: linear-gradient(135deg, #3498db, #2c3e50);
     display: flex;
     align-items: center;
@@ -74,28 +74,29 @@ body {
     text-align: center;
     color: white;
     padding: 0 1rem;
-    margin-top: 72px; /* Add margin to account for fixed navbar */
 }
 
 .hero-content {
     max-width: 800px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 2rem; /* Added padding for better spacing */
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 0.7rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero-content h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    margin-top: 0; /* Remove any top margin */
+    margin-top: 100px;
 }
-
-.hero-content p {
-    font-size: 1.2rem;
-    margin-bottom: 3.7rem;
+.hero-content p{
+    margin-top: -10px;
+    margin-bottom: 25px;
 }
-
-
 
 
 .contact-form {
