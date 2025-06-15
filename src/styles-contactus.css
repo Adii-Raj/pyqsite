@@ -43,54 +43,74 @@ body {
     letter-spacing: 1px;
 }
 
-.nav-links {
+.menu {
     display: flex;
     list-style: none;
 }
 
-.nav-links li {
+.menu li {
     margin-left: 2rem;
 }
 
-.nav-links a {
+.menu a {
     text-decoration: none;
     color: #2c3e50;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.menu a:hover {
     color: #3498db;
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-/* Hero section */
->>>>>>> parent of caf3449 (New update - Hamburger)
-=======
-/* Hero section */
->>>>>>> parent of caf3449 (New update - Hamburger)
-=======
-/* Hero section */
->>>>>>> parent of caf3449 (New update - Hamburger)
-=======
-/* Hero section */
->>>>>>> parent of caf3449 (New update - Hamburger)
-=======
-/* Hero section */
->>>>>>> parent of caf3449 (New update - Hamburger)
-=======
-/* Hero section */
->>>>>>> parent of caf3449 (New update - Hamburger)
+/* Hamburger Menu Styles */
+.open-menu , .close-menu{
+    position: absolute;
+    color: var(--color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu{
+    top: 50%;
+    right: 20px;
+    transform: translate(-50%)
+}
+.close-menu{
+    top: 39px;
+    right: 35px;
+}
+#check {display: none;}
+@media (max-width: 768px) {
+    .menu{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background: linear-gradient(135deg, #d9d9da, #3498db, #154768);
+        transition: all 0.2s ease-in-out;
+        border-top-left-radius: 0.7rem;
+        border-bottom-left-radius: 0.7rem;
+    }
+    .menu li{margin-top: 40px;}
+    .menu li{padding: 0.4rem;}
+    .open-menu, .close-menu {display:block;}
+    #check:checked ~ .menu{right: 0;}
+}
+
+
+
+
+
+
 /* Hero section */
 .hero {
-
-    height: 100vh;
+    height: 40vh; /* Changed from calc(100vh - 72px) to 40vh for consistency */
     background: linear-gradient(135deg, #3498db, #2c3e50);
     display: flex;
     align-items: center;
@@ -98,29 +118,28 @@ body {
     text-align: center;
     color: white;
     padding: 0 1rem;
+    margin-top: 72px; /* Add margin to account for fixed navbar */
 }
 
 .hero-content {
     max-width: 800px;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    margin-bottom: 0.7rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
+    width: 100%;
+    margin: 0 auto;
+    padding: 2rem; /* Added padding for better spacing */
 }
 
 .hero-content h1 {
-    margin-top: 100px;
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    margin-top: 0; /* Remove any top margin */
 }
-.hero-content p{
-    margin-top: -10px;
-    margin-bottom: 25px;
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 3.7rem;
 }
+
+
 
 
 .contact-form {
