@@ -18,12 +18,15 @@
             PTU PYQ
             <div class="unofficial-note">unofficial</div>
         </div>
-        <ul class="nav-links">
-            <li><a href="../../index.html">Home</a></li>
+        <input type="checkbox" id="check">
+        <span class="menu">
+            <li><a href="../../index.html#home">Home</a></li>
             <li><a href="../../index.html#courses">Courses</a></li>
             <li><a href="../../index.html#about">About</a></li>
             <li><a href="../../index.html#contact">Contact</a></li>
-        </ul>
+            <label for="check" class="close-menu"> <i class="fas fa-times"></i></label>
+        </span>
+        <label for="check" class="open-menu"> <i class="fas fa-bars"></i></label>
     </nav>
 
     <section id="home" class="hero">
@@ -43,6 +46,12 @@
                     <option value="all">All Semesters</option>
                     <option value="1">Semester 1</option>
                     <option value="2">Semester 2</option>
+                    <option value="3">Semester 3</option>
+                    <option value="4">Semester 4</option>
+                    <option value="5">Semester 5</option>
+                    <option value="6">Semester 6</option>
+                    <option value="7">Semester 7</option>
+                    <option value="8">Semester 8</option>
                     <!-- ... up to semester 8 -->
                 </select>
             </div>
@@ -59,8 +68,12 @@
                 <label for="year">Year:</label>
                 <select id="year" class="filter-select">
                     <option value="all">All Years</option>
+                    <!-- <option value="2025">2025</option>
+                    <option value="2024">2024</option> -->
                     <option value="2023">2023</option>
-                    <option value="2022">2022</option>
+                    <!-- <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option> -->
                     <!-- ... other years -->
                 </select>
             </div>

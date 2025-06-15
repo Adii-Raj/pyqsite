@@ -43,25 +43,69 @@ body {
     letter-spacing: 1px;
 }
 
-.nav-links {
+.menu {
     display: flex;
     list-style: none;
 }
 
-.nav-links li {
+.menu li {
     margin-left: 2rem;
 }
 
-.nav-links a {
+.menu a {
     text-decoration: none;
     color: #2c3e50;
     font-weight: 500;
     transition: color 0.3s ease;
 }
 
-.nav-links a:hover {
+.menu a:hover {
     color: #3498db;
 }
+
+/* Hamburger Menu Styles */
+.open-menu , .close-menu{
+    position: absolute;
+    color: var(--color);
+    cursor: pointer;
+    font-size: 1.5rem;
+    display: none;
+}
+.open-menu{
+    top: 50%;
+    right: 20px;
+    transform: translate(-50%)
+}
+.close-menu{
+    top: 39px;
+    right: 35px;
+}
+#check {display: none;}
+@media (max-width: 768px) {
+    .menu{
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        right: -100%;
+        z-index: 100;
+        background: linear-gradient(135deg, #d9d9da, #3498db, #154768);
+        transition: all 0.2s ease-in-out;
+        border-top-left-radius: 0.7rem;
+        border-bottom-left-radius: 0.7rem;
+    }
+    .menu li{margin-top: 40px;}
+    .menu li{padding: 0.4rem;}
+    .open-menu, .close-menu {display:block;}
+    #check:checked ~ .menu{right: 0;}
+}
+
+
+
+
 
 /* Hero section */
 .hero {
@@ -270,7 +314,7 @@ footer {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+/* @media (max-width: 768px) {
     .navbar {
         padding: 1rem;
     }
@@ -286,7 +330,7 @@ footer {
     .course-grid {
         grid-template-columns: 1fr;
     }
-} 
+}  */
 /* ============================
    Animated Gradient Card Effect
 ============================= */
@@ -499,4 +543,3 @@ This adds a shadow of card
         max-width: 300px;
     }
 }
-
