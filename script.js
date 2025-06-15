@@ -199,6 +199,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 });
 
 // Add fade-in animation to elements when they come into view
@@ -221,6 +222,9 @@ const observer = new IntersectionObserver((entries, observer) => {
 document.querySelectorAll('section').forEach(section => {
     observer.observe(section);
 }); 
+=======
+});
+>>>>>>> parent of caf3449 (New update - Hamburger)
 =======
 });
 >>>>>>> parent of caf3449 (New update - Hamburger)
